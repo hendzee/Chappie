@@ -2,6 +2,10 @@
 ### What is Chappie ?
 Chappie is program that was writen by me and contain command's aliasing to make command shell more simple, short, and easy to remember. Work together with fish(omf) shell. There are some alias including react-native-cli, npm, showing ip address, docker, git, etc. You can adjust omf.fish after installation to adjust the program with your environment and situation.
 
+### Pre Installation
+- Fish
+- Omf (Oh My Fish)
+
 ### Installation
 > Before you make installation, make sure to backup your omf file and fish's functions, because It will be replaced!!!.
 
