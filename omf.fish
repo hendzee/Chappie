@@ -29,7 +29,7 @@ set -gx PATH $PATH $HOME/Library/FlutterSDK/bin
 set -gx PATH $PATH /opt/homebrew/opt/node@12/bin
 
 #Alias
-alias echo-alias='cat /Users/virginiahendras/Console/alias_list/README.md'
+# alias echo-alias='cat /Users/virginiahendras/Console/alias_list/list.txt'
 alias cl='clear'
 alias cd..='cd ../'
 alias npms='npm start'
@@ -41,13 +41,14 @@ alias commit='gitmoji -c'
 alias gmain='git push origin main'
 alias mirror='scrcpy & disown'
 alias branch='git branch'
-alias rmnode='echo "⏳ Deleting node modules..."; rm -rf ./node_modules/; rm -f ./package-lock.json; echo "✅ Node modules has been deleted."'
+alias rmnode='echo "⏳ Deleting node modules..."; rm -rf ./node_modules/; echo "✅ Node modules has been deleted."'
+alias grad-clean='echo "⏳ Cleaning gradle..."; cd android; ./gradlew clean; cd..; echo "✅ Gradle has been cleaned."'
 alias pull-main='git pull origin main'
 alias pull-mas='git pull origin master'
 alias mostart='brew services start mongodb-community@5.0'
 alias dockcon='docker container'
 alias setting='code ~/.config/fish/conf.d/omf.fish || echo "Failed to open setting"'
-alias pod-clean='echo "⏳ Clean and restarting pod..."; rm -rf ~/Library/Caches/CocoaPods; rm -rf Pods; rm -rf ~/Library/Developer/Xcode/DerivedData/* || echo "skip..."; pod deintegrate; pod setup; pod install; echo "✅ Pods has restarted successfully."'
+alias pod-clean='echo "⏳ Cleanning pod..."; rm -rf ~/Library/Caches/CocoaPods || echo "Skip..."; rm -rf Pods || echo "Skip..."; rm -rf ~/Library/Developer/Xcode/DerivedData/* || echo "skip..."; pod deintegrate; echo "✅ Pods has cleaned successfully."'
 
 # Functions
 # Checkout branch
