@@ -102,3 +102,147 @@ function move-apk
 
   echo
 end
+
+function lets-work
+  set day (date +%A)
+  
+  echo "🙂 Happy $day, Chappie here, which project you want to run ?"
+  
+  echo
+  
+  read -P ' - Write project name (related WorkRepo): ' project
+
+  echo
+
+  echo "So, you choose $project, please wait i will prepare for you"
+
+  echo
+
+  if [ $project = 'mhc-app' ]
+    run-mhc-app
+  else if [ $project = 'mhc-be' ]
+    run-mhc-be
+  else if [ $project = 'groupcare-app' ]
+    run-groupcare-app
+  else if [ $project = 'mhc-customer-be' ]
+    run-mhc-customer-be
+  else
+    echo "I'm sorry but i think there is no project called $project"
+  end
+end
+
+# Automation mhc-app
+function run-mhc-app
+  echo 'Change directory'
+  
+  cd ~/WorkRepo/mhc-app/MHCApp/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 16'
+
+  nvm use 16
+
+  echo
+
+  echo 'Running bundle'
+
+  npm run android-bundle
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
+
+# Automation mhc-be
+function run-mhc-be
+  echo 'Change directory'
+
+  cd ~/WorkRepo/mhc-be/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 10'
+
+  nvm use 10
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
+
+# Automation groupcare-app
+function run-groupcare-app
+  echo 'Change directory'
+
+  cd ~/WorkRepo/income-mobile/IncomeApp/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 10'
+
+  nvm use 10
+
+  echo
+
+  echo 'Running bundle'
+
+  npm run bundle
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
+
+# Automation mhc-customer-be
+function run-mhc-customer-be
+  echo 'Change directory'
+
+  cd ~/WorkRepo/mhc-customer-be/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 10'
+
+  nvm use 10
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
