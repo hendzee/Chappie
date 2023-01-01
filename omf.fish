@@ -73,61 +73,87 @@ end
 
 # Moving apk or aab to ApkStorage folder
 function move-apk
-  echo '🙂 Hello, chappie here, i will move your apk to ApkStorage folder, make sure youre in project root'
-  
+  echo
+  echo '+___+ Hello, chappie here, i will move your apk to ApkStorage folder, make sure youre in project root'
   echo
   
-  read -P ' - Which type you want move (apk/aab): ' choice
-  read -P ' - Whats name (no need extension): ' apkName
+  read -P ' > Which type you want move (apk/aab): ' choice
+  read -P ' > Whats name (no need extension): ' apkName
 
   echo
   
   if [ $choice = "apk" ]
     if test -f ./android/app/build/outputs/apk/release/app-release.apk
-      echo "🐝 Copying apk to ApkStorage"
+      echo "+___+ Copying apk to ApkStorage"
       cp ./android/app/build/outputs/apk/release/app-release.apk ~/ApkStorage/$apkName.apk
-      echo "🍯 Apk files already copied"
+      echo "^___^ Apk files already copied"
     else
-      echo "🔎 apk files not found"
+      echo "x___x apk files not found"
     end    
   else if [ $choice = "aab" ]
     if test -f ./android/app/build/outputs/bundle/release/app-release.aab
-      echo "🐝 Copying aab to ApkStorage"
+      echo "+___+ Copying aab to ApkStorage"
       cp ./android/app/build/outputs/bundle/release/app-release.aab ~/ApkStorage/$apkName.aab
-      echo "🍯 aab files already copied"
+      echo "^___^ aab files already copied"
     else
-      echo "🔎 aab files not found"
+      echo "x___x aab files not found"
     end    
   end
 
   echo
 end
 
-function lets-work
+function run-project
   set day (date +%A)
   
-  echo "🙂 Happy $day, Chappie here, which project you want to run ?"
+  echo 
+  echo "+___+ Happy $day, Chappie here, which project you want to run ?"
   
   echo
-  
-  read -P ' - Write project name (related WorkRepo): ' project
+
+  echo "0: MHC BE"
+  echo "1: MHC FE"
+  echo "2: MHC APP"
+  echo "3: MHC CUSTOMER BE"
+  echo "4: MHC CUSTOMER FE"
+  echo "5: MHC EVET BE"
+  echo "6: MHC EVENT FE"
+  echo "7: MHC GROUPCARE BE"
+  echo "9: MHC GROUPCARE FE"
+  echo "9: MHC GROUPCARE APP"
+  echo "cancel: To Cancel"
 
   echo
+  
+  read -P ' > Write project number: ' project
 
+  echo
   echo "So, you choose $project, please wait i will prepare for you"
-
   echo
 
-  if [ $project = 'mhc-app' ]
-    run-mhc-app
-  else if [ $project = 'mhc-be' ]
-    run-mhc-be
-  else if [ $project = 'groupcare-app' ]
-    run-groupcare-app
-  else if [ $project = 'mhc-customer-be' ]
-    run-mhc-customer-be
-  else
-    echo "I'm sorry but i think there is no project called $project"
+  switch $project
+    case 0
+      run-mhc-be
+    case 1
+      run-mhc-fe
+    case 2
+      run-mhc-app
+    case 3
+      run-mhc-customer-be
+    case 4
+      run-mhc-customer-fe
+    case 5
+      run-mhc-event-be
+    case 6
+      run-mhc-event-fe
+    case 7
+      run-groupcare-be
+    case 8
+      run-groupcare-fe
+    case 9
+      run-groupcare-app
+    case '*'
+      echo 'Cancel'
   end
 end
 
@@ -189,6 +215,28 @@ function run-mhc-be
 
 end
 
+# mhc-fe
+function run-mhc-fe
+  echo 'Change directory'
+
+  cd ~/WorkRepo/mhc-web/
+
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node verson 10'
+
+  echo 'Running node'
+
+  npm run start:local
+end
+
+
 # Automation groupcare-app
 function run-groupcare-app
   echo 'Change directory'
@@ -245,4 +293,138 @@ function run-mhc-customer-be
 
   npms
 
+end
+
+# Automation mhc-customer-be
+function run-mhc-customer-fe
+  echo 'Change directory'
+
+  cd ~/WorkRepo/mhc-customer-fe/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 10'
+
+  nvm use 10
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
+
+# mhc-event-be
+function run-mhc-event-be
+  echo 'Change directory'
+
+  cd ~/WorkRepo/mhc-event-be/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 10'
+
+  nvm use 10
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
+
+# mhc-event-fe
+function run-mhc-event-fe
+  echo 'Change directory'
+
+  cd ~/WorkRepo/mhc-event-fe/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 10'
+
+  nvm use 10
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
+
+# groupcare-be
+function run-groupcare-be
+  echo 'Change directory'
+
+  cd ~/WorkRepo/groupcare-be/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 10'
+
+  nvm use 10
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
+
+# groupcare fe
+function run-groupcare-fe
+  echo 'Change directory'
+
+  cd ~/WorkRepo/groupcare-fe/
+  
+  echo
+
+  echo 'Open VSCode'
+
+  code ./
+
+  echo
+
+  echo 'Set node version 10'
+
+  nvm use 10
+
+  echo
+
+  echo 'Running node'
+
+  npms
+
+end
+
+function greeting_work_ganbate
+  echo '^__^ Everything is ready. Success for today and be happy always'
 end
