@@ -119,17 +119,19 @@ function run-project
   echo "5: MHC EVET BE"
   echo "6: MHC EVENT FE"
   echo "7: MHC GROUPCARE BE"
-  echo "9: MHC GROUPCARE FE"
+  echo "8: MHC GROUPCARE FE"
   echo "9: MHC GROUPCARE APP"
-  echo "cancel: To Cancel"
+  echo "c: To Cancel"
 
   echo
   
-  read -P ' > Write project number: ' project
+  read -P ' > Select project number: ' project
 
   echo
-  echo "So, you choose $project, please wait i will prepare for you"
+  greeting_work_ganbate
   echo
+
+  sleep 3
 
   switch $project
     case 0
@@ -152,6 +154,8 @@ function run-project
       run-groupcare-fe
     case 9
       run-groupcare-app
+    case c
+      echo 'Cancel'
     case '*'
       echo 'Cancel'
   end
@@ -426,5 +430,7 @@ function run-groupcare-fe
 end
 
 function greeting_work_ganbate
-  echo '^__^ Everything is ready. Success for today and be happy always'
+  echo '---------------------------------------------------------------'
+  echo '^__^ I will prepare it. Success for today and be happy always'
+  echo '---------------------------------------------------------------'
 end
