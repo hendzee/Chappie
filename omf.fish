@@ -3,6 +3,9 @@ set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
   or set -gx OMF_PATH "$HOME/.local/share/omf"
 
+# Use java 8 as default
+export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
+
 # Remove Greeting
 function fish_greeting
 end
@@ -69,6 +72,28 @@ function myip
   echo -n "🏠 Your current ip is: "
   set_color green
   echo $ip
+end
+
+# Switching JAVA Version
+function change-java
+  echo
+  echo '+___+ Hello, chappie here, i will change your java version'
+  echo
+  
+  read -P ' > Which version do you want (1.8/11): ' choice
+
+  if [ $choice = "1.8" ]
+    export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
+    echo '+___+ JAVA VERSION HAS CHANGED TO V.8'
+    echo
+  else if [ $choice = "11" ]
+    export JAVA_HOME=$(/usr/libexec/java_home -v11)
+    echo '+___+ JAVA VERSION HAS CHANGED TO V.11'
+    echo
+  else
+    echo 'The options only 1.8 and 11.'
+  end
+
 end
 
 # Moving apk or aab to ApkStorage folder
