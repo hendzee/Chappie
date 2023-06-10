@@ -259,10 +259,6 @@ function run-mhc-fe
   echo
 
   echo 'Set node verson 10'
-
-  echo 'Running node'
-
-  npm run start:local
 end
 
 
@@ -341,13 +337,6 @@ function run-mhc-customer-fe
   echo 'Set node version 10'
 
   nvm use 10
-
-  echo
-
-  echo 'Running node'
-
-  npms
-
 end
 
 # mhc-event-be
@@ -393,13 +382,6 @@ function run-mhc-event-fe
   echo 'Set node version 10'
 
   nvm use 10
-
-  echo
-
-  echo 'Running node'
-
-  npms
-
 end
 
 # groupcare-be
@@ -445,13 +427,6 @@ function run-groupcare-fe
   echo 'Set node version 10'
 
   nvm use 10
-
-  echo
-
-  echo 'Running node'
-
-  npms
-
 end
 
 function greeting_work_ganbate
