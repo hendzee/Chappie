@@ -152,9 +152,11 @@ function run-project
   
   read -P ' > Select project number: ' project
 
-  echo
-  greeting_work_ganbate
-  echo
+  if [ $project != 'c' ]
+    echo
+    greeting_work_ganbate
+    echo
+  end
 
   sleep 3
 
@@ -180,9 +182,13 @@ function run-project
     case 9
       run-groupcare-app
     case c
-      echo 'Cancel'
+      echo
+      echo '+___+ Project cancelled'
+      echo
     case '*'
-      echo 'Cancel'
+      echo
+      echo "+___+ Hmmm, I can't found your project, please select the correct number"
+      echo
   end
 end
 
@@ -232,7 +238,7 @@ function run-mhc-be
 
   echo
 
-  echo 'Set node version 10'
+  echo 'Set node version 16'
 
   nvm use 10
 
@@ -308,7 +314,7 @@ function run-mhc-customer-be
 
   echo
 
-  echo 'Set node version 10'
+  echo 'Set node version 16'
 
   nvm use 10
 
