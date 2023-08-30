@@ -58,7 +58,8 @@ alias pull-mas='git pull origin master'
 alias mostart='brew services start mongodb-community@5.0'
 alias dockcon='docker container'
 alias setting='code ~/.config/fish/conf.d/omf.fish || echo "Failed to open setting"'
-alias pod-clean='echo "⏳ Cleanning pod..."; rm -rf ~/Library/Caches/CocoaPods || echo "Skip..."; rm -rf Pods || echo "Skip..."; rm -rf ~/Library/Developer/Xcode/DerivedData/* || echo "skip..."; pod deintegrate || echo "skip..."; echo "✅ Pods has cleaned successfully."'
+alias workrepo='clear; cd ~/WorkRepo; echo ""; echo "📁 Moved to WorkRepo/"; echo ""'
+# alias pod-clean='echo "⏳ Cleanning pod..."; rm -rf ~/Library/Caches/CocoaPods || echo "Skip..."; rm -rf Pods || echo "Skip..."; rm -rf ~/Library/Developer/Xcode/DerivedData/* || echo "skip..."; pod deintegrate || echo "skip..."; echo "✅ Pods has cleaned successfully."'
 
 # Functions
 # Checkout branch
@@ -439,4 +440,36 @@ function greeting_work_ganbate
   echo '---------------------------------------------------------------'
   echo '^__^ I will prepare it. Success for today and be happy always'
   echo '---------------------------------------------------------------'
+end
+
+function pod-clean
+  echo ''
+
+  echo "⏳ Cleanning pod begin..."
+
+  echo ''
+
+  echo '✅ Removing CocoaPods'
+  rm -r ~/Library/Caches/CocoaPods 2> /dev/null
+
+  echo ''
+
+  echo '✅ Removing Pods'
+  rm -r Pods 2> /dev/null
+
+  echo ''
+
+  echo '✅ Removing DerivedData'
+  rm -r ~/Library/Developer/Xcode/DerivedData 2> /dev/null
+
+  echo ''
+  
+  echo '✅ Deintegrate pod'
+  pod deintegrate --silent
+
+  echo ''
+  
+  echo "✅ Pods has cleaned successfully."
+
+  echo ''
 end
