@@ -81,7 +81,9 @@ function change-java
   echo '+___+ Hello, chappie here, i will change your java version'
   echo
   
-  read -P ' > Which version do you want (1.8/11): ' choice
+  echo ' > 1.8 | 11 | 17'
+  echo ''
+  read -P ' > Which version do you want: ' choice
 
   if [ $choice = "1.8" ]
     export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
