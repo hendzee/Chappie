@@ -91,8 +91,12 @@ function change-java
     export JAVA_HOME=$(/usr/libexec/java_home -v11)
     echo '+___+ JAVA VERSION HAS CHANGED TO V.11'
     echo
+  else if [ $choice = "17" ]
+    export JAVA_HOME=$(/usr/libexec/java_home -v17)
+    echo '+___+ JAVA VERSION HAS CHANGED TO V.17'
+    echo
   else
-    echo 'The options only 1.8 and 11.'
+    echo 'The options only 1.8, 11 and 17'
   end
 
 end
@@ -450,17 +454,17 @@ function pod-clean
   echo ''
 
   echo '✅ Removing CocoaPods'
-  rm -r ~/Library/Caches/CocoaPods 2> /dev/null
+  rm -rf ~/Library/Caches/CocoaPods 2> /dev/null
 
   echo ''
 
   echo '✅ Removing Pods'
-  rm -r Pods 2> /dev/null
+  rm -rf Pods 2> /dev/null
 
   echo ''
 
   echo '✅ Removing DerivedData'
-  rm -r ~/Library/Developer/Xcode/DerivedData 2> /dev/null
+  rm -rf ~/Library/Developer/Xcode/DerivedData 2> /dev/null
 
   echo ''
   
