@@ -58,7 +58,7 @@ alias pull-mas='git pull origin master'
 alias mostart='brew services start mongodb-community@5.0'
 alias dockcon='docker container'
 alias setting='code ~/.config/fish/conf.d/omf.fish || echo "Failed to open setting"'
-alias workrepo='clear; cd ~/WorkRepo; echo ""; echo "📁 Moved to WorkRepo/"; echo ""'
+alias workrepo='clear; cd /Volumes/Hendras/Workrepo/; echo ""; echo "📁 Moved to WorkRepo/"; echo ""'
 # alias pod-clean='echo "⏳ Cleanning pod..."; rm -rf ~/Library/Caches/CocoaPods || echo "Skip..."; rm -rf Pods || echo "Skip..."; rm -rf ~/Library/Developer/Xcode/DerivedData/* || echo "skip..."; pod deintegrate || echo "skip..."; echo "✅ Pods has cleaned successfully."'
 
 # Functions
