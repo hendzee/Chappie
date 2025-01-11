@@ -58,7 +58,10 @@ alias pull-mas='git pull origin master'
 alias mostart='brew services start mongodb-community@5.0'
 alias dockcon='docker container'
 alias setting='code ~/.config/fish/conf.d/omf.fish || echo "Failed to open setting"'
-alias workrepo='clear; cd /Volumes/Hendras/Workrepo/; echo ""; echo "📁 Moved to WorkRepo/"; echo ""'
+alias workrepo_1='clear; cd /Volumes/workrepo_1/; echo ""; echo "📁 Moved to WorkRepo 1/"; echo ""'
+alias workrepo_2='clear; cd /Volumes/workrepo_2/; echo ""; echo "📁 Moved to WorkRepo 2/"; echo ""'
+alias create-rn-project='npx @react-native-community/cli init'
+alias pod-install='clear; cd ios/ && pod install && cd..'
 # alias pod-clean='echo "⏳ Cleanning pod..."; rm -rf ~/Library/Caches/CocoaPods || echo "Skip..."; rm -rf Pods || echo "Skip..."; rm -rf ~/Library/Developer/Xcode/DerivedData/* || echo "skip..."; pod deintegrate || echo "skip..."; echo "✅ Pods has cleaned successfully."'
 
 # Functions
@@ -449,6 +452,10 @@ function greeting_work_ganbate
 end
 
 function pod-clean
+  cd /ios
+  
+  echo 'Change directory to ios'
+  
   echo ''
 
   echo "⏳ Cleanning pod begin..."
@@ -478,4 +485,6 @@ function pod-clean
   echo "✅ Pods has cleaned successfully."
 
   echo ''
+
+  cd..
 end
